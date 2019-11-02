@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class EventsCollectionSeeder extends Seeder
 {
@@ -12,12 +13,21 @@ class EventsCollectionSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
         DB::collection('events')->delete();
+
         DB::collection('events')->insert(array(
-            'name' => 'Event 1',
-            'description' => 'This is a seeded event',
-            'start' => new \DateTime(),
-            'end' => new \DateTime()
+            'name' => $faker->text('20'),
+            'description' => $faker->text('150'),
+            'start' => new \MongoDB\BSON\UTCDateTime(new Date()),
+            'end' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-02"))
+        ));
+
+        DB::collection('events')->insert(array(
+            'name' => $faker->text('20'),
+            'description' => $faker->text('150'),
+            'start' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-01")),
+            'end' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-01"))
         ));
     }
 }

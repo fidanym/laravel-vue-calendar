@@ -11,6 +11,12 @@ class Event extends Eloquent
     protected $collection = 'events';
 
     protected $fillable = [
-        'title', 'description','start', 'end'
+        'title', 'description'
+    ];
+
+    protected $dateFormat = 'Y-m-d';
+
+    protected $dates = [
+        'start', 'end'
     ];
 }
