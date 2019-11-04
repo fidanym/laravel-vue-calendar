@@ -19,15 +19,15 @@ class EventsCollectionSeeder extends Seeder
         DB::collection('events')->insert(array(
             'name' => $faker->text('20'),
             'description' => $faker->text('150'),
-            'start' => new \MongoDB\BSON\UTCDateTime(new Date()),
-            'end' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-02"))
+            'start' => new \MongoDB\BSON\UTCDateTime(new DateTime('2019-11-02')),
+            'end' => new \MongoDB\BSON\UTCDateTime(new DateTime("2019-11-05"))
         ));
 
         DB::collection('events')->insert(array(
             'name' => $faker->text('20'),
             'description' => $faker->text('150'),
-            'start' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-01")),
-            'end' => new \MongoDB\BSON\UTCDateTime(new Date("2019-11-01"))
+            'start' => new \MongoDB\BSON\UTCDateTime(new DateTime("2019-11-01")),
+            'end' => new \MongoDB\BSON\UTCDateTime(new DateTime("2019-11-01"))
         ));
     }
 }
